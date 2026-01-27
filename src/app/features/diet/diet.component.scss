@@ -1,0 +1,367 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.diet-hero {
+    padding: 180px 0 100px;
+    background-color: $color-sand;
+    text-align: center;
+
+    h1 {
+        font-size: clamp(3rem, 8vw, 5rem);
+        margin-bottom: $spacing-sm;
+
+        span {
+            color: $color-terracotta;
+            font-style: italic;
+        }
+    }
+
+    p {
+        max-width: 700px;
+        margin: 0 auto $spacing-lg;
+        color: $color-text-muted;
+        font-size: 1.25rem;
+    }
+
+    .hero-actions {
+        margin-top: $spacing-md;
+
+        .btn-primary {
+            padding: 1.25rem 3rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+}
+
+.bg-sand {
+    background-color: $color-sand;
+}
+
+.bg-cream {
+    background-color: $color-cream;
+}
+
+.quiz-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color-earth-brown, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-md;
+
+    .btn-close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: white;
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.dosha-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-lg;
+    margin-top: $spacing-lg;
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dosha-card {
+    background-color: white;
+    padding: $spacing-lg;
+    border-radius: 30px;
+    border-top: 8px solid $color-sage;
+    transition: $transition-smooth;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    &.highlight {
+        border: 2px solid $color-sage;
+        transform: scale(1.02);
+    }
+
+    &.expanded {
+        grid-column: span 3;
+
+        @media (max-width: 992px) {
+            grid-column: span 1;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    }
+
+    .dosha-image {
+        height: 200px;
+        margin-bottom: $spacing-md;
+        border-radius: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: $color-cream;
+        }
+    }
+
+    .dosha-head {
+        margin-bottom: $spacing-md;
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .elements {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: $color-sage;
+            font-weight: 600;
+        }
+    }
+
+    p {
+        color: $color-text-muted;
+        margin-bottom: $spacing-md;
+        line-height: 1.6;
+    }
+}
+
+.dosha-expanded-content {
+    margin-top: $spacing-md;
+    border-top: 1px solid $color-sand;
+    padding-top: $spacing-md;
+    animation: fadeIn 0.5s ease;
+
+    .long-desc {
+        font-style: italic;
+        margin-bottom: $spacing-lg;
+    }
+
+    h4 {
+        margin-bottom: $spacing-sm;
+        color: $color-earth-brown;
+    }
+
+    .advice-list {
+        list-style: none;
+
+        li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 10px;
+            color: $color-text;
+
+            &::before {
+                content: '•';
+                color: $color-sage;
+                position: absolute;
+                left: 0;
+                font-size: 1.5rem;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $color-terracotta;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: $color-earth-brown;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    transition: $transition-smooth;
+    margin-top: auto;
+    width: fit-content;
+
+    &:hover {
+        color: $color-sage;
+        padding-left: 5px;
+    }
+}
+
+.tips-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tips-image {
+    border-radius: 30px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+
+.tastes-list {
+    margin-top: $spacing-md;
+
+    li {
+        margin-bottom: $spacing-sm;
+        color: $color-text-muted;
+
+        strong {
+            color: $color-earth-brown;
+            margin-right: 10px;
+        }
+    }
+}
+
+.ayurvedic-science {
+    padding: $spacing-xl 0;
+
+    .science-stats {
+        display: flex;
+        gap: $spacing-xl;
+        margin-top: $spacing-lg;
+
+        .stat-item {
+            .num {
+                display: block;
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: $color-sage;
+                font-family: $font-family-heading;
+            }
+
+            .label {
+                color: $color-text-muted;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+.success-stories {
+    padding: $spacing-xl 0;
+
+    .section-header.center {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto $spacing-lg;
+    }
+}
+
+.testimonials-grid {
+    @include responsive-grid(300px);
+    margin-top: $spacing-xl;
+}
+
+.testimonial-card {
+    background: $color-cream;
+    padding: $spacing-xl;
+    border-radius: 40px;
+    position: relative;
+
+    p {
+        font-size: 1.2rem;
+        font-style: italic;
+        line-height: 1.6;
+        color: $color-earth-brown;
+        margin-bottom: $spacing-md;
+    }
+
+    .user {
+        font-weight: 700;
+
+        span {
+            color: $color-sage;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content-text {
+    h2 {
+        font-size: 3.5rem;
+        margin-bottom: $spacing-md;
+
+        span {
+            color: $color-sage;
+        }
+    }
+}
+
+.content-image {
+    border-radius: 40px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+}

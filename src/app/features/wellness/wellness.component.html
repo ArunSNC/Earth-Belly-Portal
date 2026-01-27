@@ -1,0 +1,77 @@
+<section class="wellness-hero" style="background-image: url('assets/images/yoga_hero.png')">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h1>Mindful <span>Living</span></h1>
+        <p>Find your inner sanctum through the sacred practices of Yoga and deep Spirituality.</p>
+    </div>
+</section>
+
+<section class="yoga-spirituality bg-cream">
+    <div class="container">
+        <div class="section-grid">
+            <div class="content-text animate-on-scroll">
+                <span class="sub-label">Spirituality</span>
+                <h2>Healing from the <span>Soul</span></h2>
+                <p>Ayurvedic spirituality is not just about meditation; it's about aligning your higher self with the
+                    natural rhythms of the universe. By cultivating <em>Sattva</em> (purity and harmony), we open the
+                    doors to true healing.</p>
+                <p>Our approach integrates ancient Vedic philosophy with modern psychology to help you navigate the
+                    complexities of life with grace and resilience.</p>
+            </div>
+            <div class="content-image animate-on-scroll">
+                <img src="assets/images/spirituality.png" alt="Spirituality">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="yoga-practices">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2>Sacred <span>Practices</span></h2>
+            <p>Explore our curated yoga and breathwork sessions designed for your specific constitution.</p>
+        </div>
+
+        <div class="practices-grid">
+            @for (practice of practices; track practice.title) {
+            <div class="practice-card animate-on-scroll">
+                <div class="card-head">
+                    <span class="focus">{{ practice.focus }}</span>
+                    <h3>{{ practice.title }}</h3>
+                </div>
+                <p>{{ practice.description }}</p>
+                <div class="card-footer">
+                    <span>{{ practice.duration }}</span>
+                    <span class="dot"></span>
+                    <span>{{ practice.difficulty }}</span>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="wellness-plans bg-sand">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2>Wellness <span>Retreats</span> & Plans</h2>
+            <p>Deepen your practice with our specialized mindfulness journeys.</p>
+        </div>
+
+        <div class="plans-grid">
+            @for (plan of mindfulnessPlans; track plan.name) {
+            <div class="plan-card-simple animate-on-scroll">
+                <h3>{{ plan.name }}</h3>
+                <div class="price">${{ plan.price }}</div>
+                <p>{{ plan.description }}</p>
+                <ul class="feat-list">
+                    @for (feat of plan.features; track feat) {
+                    <li>{{ feat }}</li>
+                    }
+                </ul>
+                <button class="btn btn-primary">Enquire Now</button>
+            </div>
+            }
+        </div>
+    </div>
+</section>

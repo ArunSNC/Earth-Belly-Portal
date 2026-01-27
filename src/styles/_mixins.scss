@@ -1,0 +1,72 @@
+@use 'styles/variables' as *;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin section-padding {
+    padding: $spacing-xl $spacing-md;
+
+    @media (max-width: 768px) {
+        padding: $spacing-lg $spacing-sm;
+    }
+}
+
+@mixin glass-morphism {
+    background: rgba(249, 247, 242, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@mixin container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+}
+
+@mixin responsive-grid($min-width: 300px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+    gap: $spacing-md;
+}
+
+@mixin btn-primary {
+    background-color: $color-sage;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition-smooth;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        background-color: darken($color-sage, 5%);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@mixin btn-outline {
+    background-color: transparent;
+    border: 2px solid $color-sage;
+    color: $color-sage;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: $transition-smooth;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        background-color: $color-sage;
+        color: white;
+        transform: translateY(-2px);
+    }
+}

@@ -1,0 +1,18 @@
+<div class="quiz-container">
+    <div class="quiz-progress">
+        <div class="progress-bar" [style.width]="(currentStep / questions.length) * 100 + '%'"></div>
+    </div>
+
+    <div class="question-slide">
+        <span class="step-label">Question {{ currentStep + 1 }} of {{ questions.length }}</span>
+        <h2>{{ questions[currentStep].text }}</h2>
+
+        <div class="options-grid">
+            @for (opt of questions[currentStep].options; track opt.text) {
+            <button class="option-btn" (click)="answer(opt.type)">
+                {{ opt.text }}
+            </button>
+            }
+        </div>
+    </div>
+</div>

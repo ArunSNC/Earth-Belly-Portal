@@ -1,0 +1,27 @@
+<div class="carousel-wrapper">
+    <div class="packages-carousel">
+        @for (pkg of packages; track pkg.id) {
+        <div class="package-card animate-on-scroll">
+            <div class="package-image">
+                <img [src]="pkg.image" [alt]="pkg.title">
+                <div class="package-badge">{{ pkg.subtitle }}</div>
+            </div>
+            <div class="package-content">
+                <h3>{{ pkg.title }}</h3>
+                <p>{{ pkg.description }}</p>
+                <ul class="feature-list">
+                    @for (feat of pkg.features; track feat) {
+                    <li><span class="dot"></span> {{ feat }}</li>
+                    }
+                </ul>
+                <button class="btn btn-primary">Choose Plan</button>
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="carousel-nav">
+        <button class="nav-btn prev" (click)="scroll(-1)">&larr;</button>
+        <button class="nav-btn next" (click)="scroll(1)">&rarr;</button>
+    </div>
+</div>

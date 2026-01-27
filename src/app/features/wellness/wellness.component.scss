@@ -1,0 +1,214 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.wellness-hero {
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-top: 80px;
+
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent);
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: left;
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: $spacing-sm;
+
+            span {
+                color: $color-sage-light;
+                font-style: italic;
+            }
+        }
+
+        p {
+            max-width: 500px;
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
+    }
+}
+
+.bg-cream {
+    background-color: $color-cream;
+}
+
+.bg-sand {
+    background-color: $color-sand;
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    align-items: center;
+    padding: $spacing-xl 0;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.content-text {
+    .sub-label {
+        color: $color-terracotta;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        display: block;
+        margin-bottom: $spacing-sm;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        margin-bottom: $spacing-md;
+
+        span {
+            color: $color-sage;
+        }
+    }
+
+    p {
+        color: $color-text-muted;
+        line-height: 1.8;
+        margin-bottom: $spacing-md;
+        font-size: 1.1rem;
+    }
+}
+
+.content-image {
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+
+    img {
+        width: 100%;
+    }
+}
+
+.practices-grid {
+    @include responsive-grid(300px);
+    margin: $spacing-xl 0;
+}
+
+.practice-card {
+    background: white;
+    padding: $spacing-lg;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: $transition-smooth;
+    border: 1px solid rgba($color-sage, 0.05);
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    }
+
+    .card-head {
+        margin-bottom: $spacing-md;
+
+        .focus {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: $color-sage;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+    }
+
+    p {
+        color: $color-text-muted;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: $spacing-lg;
+    }
+
+    .card-footer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.8rem;
+        color: $color-text-muted;
+        font-weight: 500;
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            background: $color-sand;
+            border-radius: 50%;
+        }
+    }
+}
+
+.plans-grid {
+    @include responsive-grid(300px);
+    margin-top: $spacing-xl;
+}
+
+.plan-card-simple {
+    background: white;
+    padding: $spacing-xl;
+    border-radius: 40px;
+    text-align: center;
+    transition: $transition-smooth;
+
+    &:hover {
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.07);
+    }
+
+    h3 {
+        font-size: 2rem;
+        margin-bottom: $spacing-sm;
+    }
+
+    .price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $color-earth-brown;
+        margin-bottom: $spacing-md;
+    }
+
+    p {
+        color: $color-text-muted;
+        margin-bottom: $spacing-lg;
+    }
+
+    .feat-list {
+        text-align: left;
+        margin-bottom: $spacing-xl;
+
+        li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 10px;
+
+            &::before {
+                content: '→';
+                position: absolute;
+                left: 0;
+                color: $color-sage;
+            }
+        }
+    }
+}

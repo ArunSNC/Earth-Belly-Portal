@@ -1,0 +1,96 @@
+<section class="food-hero" style="background-image: url('assets/images/food_hero.png')">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h1>Guilt-Free <span>Food</span></h1>
+        <p>Nourishing your body with pure, natural ingredients. Deliciously healthy, consciously prepared.</p>
+    </div>
+</section>
+
+<section class="recipes-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Signature <span>Recipes</span></h2>
+            <p>Explore our curated selection of Ayurvedic and modern healthy meals.</p>
+        </div>
+
+        <div class="recipe-grid">
+            @for (recipe of recipes; track recipe.id) {
+            <div class="recipe-card animate-on-scroll">
+                <div class="recipe-image">
+                    <img [src]="recipe.image" [alt]="recipe.title">
+                    <div class="category-tag">{{ recipe.category }}</div>
+                </div>
+                <div class="recipe-content">
+                    <div class="recipe-tags">
+                        @for (tag of recipe.tags; track tag) {
+                        <span class="tag">{{ tag }}</span>
+                        }
+                    </div>
+                    <h3>{{ recipe.title }}</h3>
+                    <p>{{ recipe.description }}</p>
+                    <div class="recipe-footer">
+                        <span class="price">${{ recipe.price.toFixed(2) }}</span>
+                        <button class="btn btn-primary" (click)="$event.stopPropagation(); placeOrder(recipe)">Place
+                            Order</button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="cooking-meditation bg-cream">
+    <div class="container">
+        <div class="section-grid">
+            <div class="content-text animate-on-scroll">
+                <span class="sub-label">Alchemy</span>
+                <h2>Cooking as <span>Meditation</span></h2>
+                <p>In the Ayurvedic tradition, the state of mind of the cook is just as important as the ingredients.
+                    Preparing food with love and mindfulness infuses it with <em>Prana</em> (vital life force).</p>
+                <p>We encourage you to turn your kitchen into a sanctuary. Slow down, notice the colors, and breathe in
+                    the aromas. This is where healing truly begins.</p>
+            </div>
+            <div class="content-image animate-on-scroll">
+                <img src="assets/images/food.png" alt="Mindful Cooking">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="seasonal-flavors">
+    <div class="container">
+        <div class="section-header center">
+            <h2>The Rhythm of <span>Nature</span></h2>
+            <p>Our menu changes with the seasons to ensure you're eating what your body needs most right now.</p>
+        </div>
+        <div class="seasons-grid">
+            <div class="season-card animate-on-scroll">
+                <h3>Spring <span>(Vata-Kapha)</span></h3>
+                <p>Focus on light, warming, and pungent foods to clear winter stagnation.</p>
+            </div>
+            <div class="season-card animate-on-scroll">
+                <h3>Summer <span>(Pitta)</span></h3>
+                <p>Cooling, hydrating, and sweet flavors to balance the heat.</p>
+            </div>
+            <div class="season-card animate-on-scroll">
+                <h3>Autumn/Winter <span>(Vata)</span></h3>
+                <p>Grounded, warm, and oily foods to maintain stability and warmth.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="special-order bg-sand">
+    <div class="container order-content">
+        <div class="order-text">
+            <h2>Custom Meal <span>Ordering</span></h2>
+            <p>Looking for a specific diet-aligned meal? We offer custom preparation based on your Dosha and health
+                goals. From sugar-free cakes to keto meal preps, we've got you covered.</p>
+            <button class="btn btn-outline" (click)="placeOrder({title: 'Custom Meal'})">Enquire Now</button>
+        </div>
+        <div class="order-image">
+            <img src="assets/images/food.png" alt="Special Order">
+        </div>
+    </div>
+</section>

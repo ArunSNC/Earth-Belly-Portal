@@ -1,0 +1,36 @@
+<div class="plans-container container">
+    <div class="plans-header animate-on-scroll">
+        <h2>Simple, <span>Transparent</span> Plans</h2>
+        <p>Choose the path that fits your lifestyle and commitment.</p>
+
+        <div class="toggle-wrapper">
+            <span [class.active]="!isYearly">Monthly</span>
+            <div class="toggle-switch" (click)="togglePlan()" [class.yearly]="isYearly">
+                <div class="handle"></div>
+            </div>
+            <span [class.active]="isYearly">Yearly <small>(Save 20%)</small></span>
+        </div>
+    </div>
+
+    <div class="plans-grid">
+        @for (plan of plans; track plan.name) {
+        <div class="plan-card animate-on-scroll" [class.popular]="plan.popular">
+            @if (plan.popular) {
+            <div class="popular-tag">Most Recommended</div>
+            }
+            <h3>{{ plan.name }}</h3>
+            <div class="price">
+                <span class="currency">$</span>
+                <span class="amount">{{ isYearly ? plan.yearlyPrice : plan.monthlyPrice }}</span>
+                <span class="period">/{{ isYearly ? 'yr' : 'mo' }}</span>
+            </div>
+            <ul class="plan-features">
+                @for (feat of plan.features; track feat) {
+                <li><span class="check">&checkmark;</span> {{ feat }}</li>
+                }
+            </ul>
+            <button class="btn btn-primary">Get Started</button>
+        </div>
+        }
+    </div>
+</div>

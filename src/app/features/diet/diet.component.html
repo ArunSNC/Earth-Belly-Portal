@@ -1,0 +1,143 @@
+<section class="diet-hero">
+    <div class="container hero-content">
+        <h1>Modern & Ayurvedic <span>Nutrition</span></h1>
+        <p>Your path to vitality combines ancient Ayurvedic wisdom with modern nutritional science.</p>
+        <div class="hero-actions">
+            <button class="btn btn-primary" (click)="showQuiz = true">Take Body Type Quiz</button>
+        </div>
+    </div>
+</section>
+
+@if (showQuiz) {
+<section class="quiz-section">
+    <div class="container">
+        <app-dosha-quiz (quizResult)="onQuizResult($event)"></app-dosha-quiz>
+        <button class="btn-close" (click)="showQuiz = false">&times;</button>
+    </div>
+</section>
+}
+
+<section class="dosha-selector" id="dosha-results">
+    <div class="container">
+        <div class="section-header">
+            <h2>{{ quizResult ? 'Your Primary Dosha: ' + quizResult : 'Explore the 3 Doshas' }}</h2>
+            <p>Understanding your Dosha helps you choose the right foods, lifestyle, and exercise for your unique body.
+            </p>
+        </div>
+
+        <div class="dosha-grid">
+            @for (dosha of doshas; track dosha.id) {
+            <div class="dosha-card" [class.highlight]="quizResult === dosha.id"
+                [class.expanded]="expandedDosha === dosha.id" [style.border-top-color]="dosha.color">
+                <div class="dosha-image">
+                    <img [src]="dosha.image" [alt]="dosha.name">
+                </div>
+                <div class="dosha-head">
+                    <h3>{{ dosha.name }}</h3>
+                    <span class="elements">{{ dosha.elements }}</span>
+                </div>
+                <p>{{ dosha.description }}</p>
+
+                @if (expandedDosha === dosha.id) {
+                <div class="dosha-expanded-content">
+                    <p class="long-desc">{{ dosha.longDesc }}</p>
+                    <h4>Daily Advice</h4>
+                    <ul class="advice-list">
+                        @for (item of dosha.advice; track item) {
+                        <li>{{ item }}</li>
+                        }
+                    </ul>
+                </div>
+                }
+
+                <button class="btn-text" (click)="toggleDosha(dosha.id)">
+                    {{ expandedDosha === dosha.id ? 'Read Less' : 'Read More' }} &rarr;
+                </button>
+
+                @if (quizResult === dosha.id) {
+                <div class="result-badge">Your Match</div>
+                }
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="personalized-packages bg-sand">
+    <div class="container">
+        <div class="section-header">
+            <h2>Personalized <span>Nutrition</span> Packages</h2>
+            <p>Targeted solutions for your specific health goals and lifestyle conditions.</p>
+        </div>
+        <app-nutrition-packages></app-nutrition-packages>
+    </div>
+</section>
+
+<section class="plans-section">
+    <app-plans></app-plans>
+</section>
+
+<section class="nutrition-tips">
+    <div class="container tips-content">
+        <div class="tips-image">
+            <img src="assets/images/ayurvedic_diet.png" alt="Ayurvedic Nutrition">
+        </div>
+        <div class="tips-text">
+            <h2>The 6 Tastes of <span>Balance</span></h2>
+            <p>Ayurvedic nutrition emphasizes including all six tastes in every meal for complete satisfaction and
+                balanced digestion.</p>
+            <ul class="tastes-list">
+                <li><strong>Sweet:</strong> Grounding and nourishing (Grains, Milk, Sweets)</li>
+                <li><strong>Sour:</strong> Cleansing and stimulating (Lemon, Yogurt, Pickles)</li>
+                <li><strong>Salty:</strong> Warming and hydrating (Salt, Seaweed)</li>
+                <li><strong>Pungent:</strong> Stimulating and clearing (Chili, Ginger, Garlic)</li>
+                <li><strong>Bitter:</strong> Cooling and detoxifying (Green Leafy Veg, Turmeric)</li>
+                <li><strong>Astringent:</strong> Cooling and firming (Beans, Pomegranate)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="ayurvedic-science bg-cream">
+    <div class="container">
+        <div class="section-grid">
+            <div class="content-text animate-on-scroll">
+                <h2>The <span>Science</span> of Life</h2>
+                <p>Ayurveda is one of the world's oldest holistic healing systems. It's based on the belief that health
+                    and wellness depend on a delicate balance between the mind, body, and spirit.</p>
+                <div class="science-stats">
+                    <div class="stat-item">
+                        <span class="num">5k+</span>
+                        <span class="label">Years of Wisdom</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="num">100%</span>
+                        <span class="label">Natural Approach</span>
+                    </div>
+                </div>
+            </div>
+            <div class="content-image animate-on-scroll">
+                <img src="assets/images/yoga_hero.png" alt="Ayurvedic Science">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="success-stories">
+    <div class="container">
+        <div class="section-header center">
+            <h2>Voices of <span>Transformation</span></h2>
+            <p>Real stories from our community who found balance through Ayurvedic nutrition.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card animate-on-scroll">
+                <p>"Earth Belly changed how I look at food. It's no longer just calories; it's prana."</p>
+                <div class="user">- Sarah J., <span>Vata Type</span></div>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <p>"The Pitta cooling diet helped my inflammation clear up in just three weeks."</p>
+                <div class="user">- Michael R., <span>Pitta Type</span></div>
+            </div>
+        </div>
+    </div>
+</section>

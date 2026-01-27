@@ -1,0 +1,21 @@
+<header [class.scrolled]="isScrolled">
+  <div class="container header-content">
+    <div class="logo">
+      <a routerLink="/"><img src="assets/images/earth_belly_logo_transparent.png" alt="Earth Belly"></a>
+    </div>
+
+    <nav [class.open]="isMenuOpen">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            (click)="isMenuOpen = false">Home</a></li>
+        <li><a routerLink="/diet" routerLinkActive="active" (click)="isMenuOpen = false">Ayurvedic Diet</a></li>
+        <li><a routerLink="/wellness" routerLinkActive="active" (click)="isMenuOpen = false">Mindfulness</a></li>
+        <li><a routerLink="/food" routerLinkActive="active" (click)="isMenuOpen = false">Guilt-Free Food</a></li>
+      </ul>
+    </nav>
+
+    <div class="menu-toggle" (click)="toggleMenu()">
+      <div class="bar" [class.open]="isMenuOpen"></div>
+    </div>
+  </div>
+</header>

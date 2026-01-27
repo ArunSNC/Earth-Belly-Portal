@@ -1,0 +1,36 @@
+// Earth Belly Design Tokens
+
+// Colors
+$color-sage: #7D8C73;
+$color-sage-light: #AAB7A2;
+$color-cream: #F9F7F2;
+$color-earth-brown: #4A3C31;
+$color-terracotta: #C27A5B;
+$color-sand: #EAE3D2;
+$color-text: #2C241E;
+$color-text-muted: #6B5E54;
+
+// Typography
+$font-family-body: 'Inter', sans-serif;
+$font-family-heading: 'Playfair Display', serif;
+$font-family-brand: 'Amatic SC', cursive;
+
+$font-size-base: 16px;
+$font-size-h1: 3.5rem;
+$font-size-h2: 2.5rem;
+$font-size-h3: 1.75rem;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 8rem;
+
+// Transitions
+$transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$transition-slow: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+
+// Z-index
+$z-nav: 1000;
+$z-modal: 2000;

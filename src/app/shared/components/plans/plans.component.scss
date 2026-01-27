@@ -1,0 +1,158 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.plans-container {
+    padding: $spacing-xl 0;
+}
+
+.plans-header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+
+    h2 {
+        font-size: 3rem;
+        margin-bottom: $spacing-sm;
+
+        span {
+            color: $color-sage;
+        }
+    }
+}
+
+.toggle-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-md;
+    margin-top: $spacing-lg;
+
+    span {
+        font-weight: 500;
+        color: $color-text-muted;
+
+        &.active {
+            color: $color-earth-brown;
+        }
+
+        small {
+            color: $color-terracotta;
+            font-weight: 700;
+        }
+    }
+}
+
+.toggle-switch {
+    width: 60px;
+    height: 30px;
+    background: $color-sand;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+
+    .handle {
+        width: 24px;
+        height: 24px;
+        background: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        transition: $transition-smooth;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    &.yearly {
+        background: $color-sage;
+
+        .handle {
+            left: 33px;
+        }
+    }
+}
+
+.plans-grid {
+    @include responsive-grid(300px);
+}
+
+.plan-card {
+    background: white;
+    padding: $spacing-xl $spacing-lg;
+    border-radius: 30px;
+    position: relative;
+    transition: $transition-smooth;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    text-align: center;
+    border: 1px solid rgba($color-sage, 0.05);
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    &.popular {
+        border: 2px solid $color-sage;
+        transform: scale(1.05);
+
+        &:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+    }
+}
+
+.popular-tag {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $color-sage;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-md;
+}
+
+.price {
+    margin-bottom: $spacing-lg;
+
+    .currency {
+        font-size: 1.5rem;
+        vertical-align: top;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .amount {
+        font-size: 3.5rem;
+        font-weight: 700;
+        font-family: $font-family-heading;
+        color: $color-earth-brown;
+    }
+
+    .period {
+        color: $color-text-muted;
+    }
+}
+
+.plan-features {
+    text-align: left;
+    margin-bottom: $spacing-xl;
+
+    li {
+        margin-bottom: 12px;
+        color: $color-text-muted;
+        font-size: 0.95rem;
+
+        .check {
+            color: $color-sage;
+            font-weight: 700;
+            margin-right: 8px;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+<section class="hero" #hero>
+    <div class="hero-bg" style="background-image: url('assets/images/vata.png')"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h1 class="animate-on-scroll">Soulful. Natural.<br><span>Living.</span></h1>
+        <p class="animate-on-scroll">Reconnect with nature's wisdom through Ayurvedic nutrition, mindful practices, and
+            wholesome living.</p>
+        <div class="hero-actions animate-on-scroll">
+            <a routerLink="/diet" class="btn btn-primary">Start Your Journey</a>
+            <a routerLink="/wellness" class="btn btn-outline">Explore Mindfulness</a>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="line"></div>
+    </div>
+</section>
+
+<section class="categories">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2>Transform Your <span>Lifestyle</span></h2>
+            <p>Explore our core pillars of Ayurvedic wellness and holistic health.</p>
+        </div>
+
+        <div class="category-grid">
+            @for (cat of categories; track cat.title; let i = $index) {
+            <div class="category-card animate-on-scroll" [style.transition-delay]="i * 0.1 + 's'">
+                <div class="card-image">
+                    <img [src]="cat.image" [alt]="cat.title">
+                </div>
+                <div class="card-content">
+                    <h3>{{ cat.title }}</h3>
+                    <p>{{ cat.description }}</p>
+                    <a [routerLink]="cat.link" class="link-more">Discover More <span>&rarr;</span></a>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="philosophie animate-on-scroll">
+    <div class="container philosoph-content">
+        <div class="philosoph-text">
+            <h2>Healing from <span>Within</span></h2>
+            <p>At Earth Belly, we believe that true health is a balance between body, mind, and spirit. Inspired by the
+                timeless wisdom of Ayurveda, we provide the tools and knowledge to help you find your unique path to
+                vitality.</p>
+            <ul class="philosoph-list">
+                <li><span>01</span> Traditional Wisdom</li>
+                <li><span>02</span> Mindful Practices</li>
+                <li><span>03</span> Wholesome Nutrition</li>
+            </ul>
+        </div>
+        <div class="philosoph-image">
+            <img src="assets/images/mindfulness.png" alt="Philosophie">
+        </div>
+    </div>
+</section>

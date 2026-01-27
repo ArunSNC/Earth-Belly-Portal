@@ -1,1 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/reset';
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+html {
+    font-size: $font-size-base;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $color-cream;
+    color: $color-text;
+    font-family: $font-family-body;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+    font-family: $font-family-heading;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.container {
+    @include container;
+}
+
+section {
+    @include section-padding;
+}
+
+// Global Classes
+.text-sage {
+    color: $color-sage;
+}
+
+.text-terracotta {
+    color: $color-terracotta;
+}
+
+.bg-sage {
+    background-color: $color-sage;
+}
+
+.bg-cream {
+    background-color: $color-cream;
+}
+
+// Animation Hooks
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: $transition-slow;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Global Buttons
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition-smooth;
+    border: 2px solid transparent;
+    font-family: $font-family-body;
+
+    &.btn-primary {
+        background-color: $color-sage;
+        color: white;
+
+        &:hover {
+            background-color: darken($color-sage, 5%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &.btn-outline {
+        background-color: transparent;
+        border-color: $color-sage;
+        color: $color-sage;
+
+        &:hover {
+            background-color: $color-sage;
+            color: white;
+            transform: translateY(-2px);
+        }
+    }
+
+    &.btn-text {
+        background: none;
+        padding: 0;
+        color: $color-sage;
+        border-radius: 0;
+
+        &:hover {
+            color: darken($color-sage, 10%);
+        }
+    }
+}
