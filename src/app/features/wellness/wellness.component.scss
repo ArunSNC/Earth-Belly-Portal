@@ -9,7 +9,16 @@
     display: flex;
     align-items: center;
     color: white;
-    margin-top: 80px;
+    margin-top: 0;
+    padding-top: 160px;
+
+    @include respond-to($breakpoint-tablet) {
+        padding-top: 120px;
+    }
+
+    @include respond-to($breakpoint-mobile) {
+        padding-top: 100px;
+    }
 
     .hero-overlay {
         position: absolute;
