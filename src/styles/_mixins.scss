@@ -6,10 +6,16 @@
     justify-content: center;
 }
 
+@mixin respond-to($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}
+
 @mixin section-padding {
     padding: $spacing-xl $spacing-md;
 
-    @media (max-width: 768px) {
+    @include respond-to($breakpoint-tablet) {
         padding: $spacing-lg $spacing-sm;
     }
 }
@@ -25,6 +31,10 @@
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 $spacing-md;
+
+    @include respond-to($breakpoint-tablet) {
+        padding: 0 $spacing-sm;
+    }
 }
 
 @mixin responsive-grid($min-width: 300px) {

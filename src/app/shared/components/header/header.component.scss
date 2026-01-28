@@ -28,12 +28,16 @@ header {
     align-items: center;
 
     img {
-        height: 80px;
+        height: 120px;
         width: auto;
         transition: $transition-smooth;
 
-        @media (max-width: 768px) {
-            height: 55px;
+        @include respond-to($breakpoint-tablet) {
+            height: 80px;
+        }
+
+        @include respond-to($breakpoint-mobile) {
+            height: 60px;
         }
     }
 }
@@ -72,7 +76,7 @@ nav {
         }
     }
 
-    @media (max-width: 768px) {
+    @include respond-to($breakpoint-tablet) {
         position: fixed;
         top: 0;
         right: -100%;
@@ -141,7 +145,7 @@ nav {
         }
     }
 
-    @media (max-width: 768px) {
+    @include respond-to($breakpoint-tablet) {
         display: block;
     }
 }

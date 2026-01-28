@@ -27,6 +27,11 @@ $spacing-md: 2rem;
 $spacing-lg: 4rem;
 $spacing-xl: 8rem;
 
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
 // Transitions
 $transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $transition-slow: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);

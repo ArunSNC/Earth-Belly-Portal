@@ -4,6 +4,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 html {
     font-size: $font-size-base;
     scroll-behavior: smooth;
