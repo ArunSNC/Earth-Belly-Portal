@@ -3,6 +3,64 @@
     <div class="container hero-content">
         <h1>Mindful <span>Living</span></h1>
         <p>Find your inner sanctum through the sacred practices of Yoga and deep Spirituality.</p>
+        <div class="hero-actions" style="margin-top: 2rem;">
+            <button class="btn btn-primary" (click)="showQuiz = true">Take States of Mind Quiz</button>
+        </div>
+    </div>
+</section>
+
+@if (showQuiz) {
+<section class="quiz-section">
+    <div class="container">
+        <app-mind-state-quiz (quizResult)="onQuizResult($event)"></app-mind-state-quiz>
+        <button class="btn-close" (click)="showQuiz = false">&times;</button>
+    </div>
+</section>
+}
+
+<section class="mind-states-selector dosha-selector" id="mind-state-results">
+    <div class="container">
+        <div class="section-header">
+            <h2>{{ quizResult ? 'Your Primary State of Mind: ' + (quizResult | titlecase) : 'Explore the 3 Gunas (States of Mind)' }}</h2>
+            <p>Understanding your current state of mind helps you cultivate Sattva for optimal well-being.
+            </p>
+        </div>
+
+        <div class="dosha-grid">
+            @for (state of mindStates; track state.id) {
+            <div class="dosha-card" [class.highlight]="quizResult === state.id"
+                [class.expanded]="expandedState === state.id" [style.border-top-color]="state.color">
+                <div class="dosha-image">
+                    <img [src]="state.image" [alt]="state.name">
+                </div>
+                <div class="dosha-head">
+                    <h3>{{ state.name }}</h3>
+                    <span class="elements">{{ state.elements }}</span>
+                </div>
+                <p>{{ state.description }}</p>
+
+                @if (expandedState === state.id) {
+                <div class="dosha-expanded-content">
+                    <p class="long-desc">{{ state.longDesc }}</p>
+                    <h4>Cultivation Advice</h4>
+                    <ul class="advice-list">
+                        @for (item of state.advice; track item) {
+                        <li>{{ item }}</li>
+                        }
+                    </ul>
+                </div>
+                }
+
+                <button class="btn-text" (click)="toggleState(state.id)">
+                    {{ expandedState === state.id ? 'Read Less' : 'Read More' }} &rarr;
+                </button>
+
+                @if (quizResult === state.id) {
+                <div class="result-badge">Your Match</div>
+                }
+            </div>
+            }
+        </div>
     </div>
 </section>
 

@@ -1,0 +1,65 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+.quiz-container {
+    background: white;
+    padding: $spacing-lg;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: $spacing-xl auto;
+}
+
+.quiz-progress {
+    height: 4px;
+    background: $color-sand;
+    border-radius: 2px;
+    margin-bottom: $spacing-lg;
+    overflow: hidden;
+
+    .progress-bar {
+        height: 100%;
+        background: $color-sage;
+        transition: $transition-smooth;
+    }
+}
+
+.step-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-text-muted;
+    display: block;
+    margin-bottom: $spacing-sm;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: $spacing-lg;
+    color: $color-earth-brown;
+}
+
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+}
+
+.option-btn {
+    padding: $spacing-md;
+    background: $color-cream;
+    border: 1px solid rgba($color-sage, 0.1);
+    border-radius: 15px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-family: $font-family-body;
+    cursor: pointer;
+    transition: $transition-smooth;
+    color: $color-text;
+
+    &:hover {
+        background: $color-sage;
+        color: white;
+        transform: translateX(10px);
+    }
+}
